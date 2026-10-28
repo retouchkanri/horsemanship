@@ -63,15 +63,37 @@
   color: var(--c-red);
 }
 
+.telIcon {
+  width: 20px;
+  height: 20px;
+  margin-right: 6px;
+  vertical-align: 0.05em;
+}
+
 .contactUnder {
   display: inline-block;
   margin-top: 4px;
   padding: 2px 12px;
-  border-radius: 999px;
   background: var(--c-navy);
   color: #fff;
   font-size: 11px;
   letter-spacing: 0.1em;
+}
+
+.mobileContact {
+  padding: 12px var(--gutter) 14px;
+  border-bottom: 1px solid var(--c-line);
+  text-align: center;
+  line-height: 1.5;
+}
+
+.mobileContact .contactLabel {
+  display: block;
+}
+
+.mobileContact .tel {
+  margin-left: 0;
+  font-size: 26px;
 }
 
 .menuButton {
@@ -80,12 +102,11 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 6px;
+  gap: 4px;
   width: 54px;
   height: 54px;
   padding: 0;
   border: 0;
-  border-radius: 50%;
   background: var(--c-navy);
   color: #fff;
   cursor: pointer;
@@ -93,38 +114,16 @@
   z-index: 2;
 }
 
-.burger {
-  position: relative;
+/* 旧サイトの MENU アイコン（上半分が閉、下半分が開のスプライト） */
+.menuIcon {
   display: block;
-  width: 20px;
-  height: 7px;
+  width: 28px;
+  height: 21px;
+  background: url("/images/theme/images/menuOpen.png") no-repeat 0 0;
 }
 
-.burger span {
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: 1.5px;
-  background: currentColor;
-  transition: transform 0.35s var(--ease), top 0.35s var(--ease);
-}
-
-.burger span:first-child {
-  top: 0;
-}
-
-.burger span:last-child {
-  top: 6px;
-}
-
-.menuButton[aria-expanded="true"] .burger span:first-child {
-  top: 3px;
-  transform: rotate(20deg);
-}
-
-.menuButton[aria-expanded="true"] .burger span:last-child {
-  top: 3px;
-  transform: rotate(-20deg);
+.menuButton[aria-expanded="true"] .menuIcon {
+  background-position: 0 -42px;
 }
 
 .menuLabel {
@@ -211,7 +210,6 @@
   margin-top: 32px;
   padding: 18px 20px;
   border: 1px solid rgb(255 255 255 / 0.25);
-  border-radius: var(--radius);
   text-align: center;
   font-size: 12px;
 }
@@ -236,7 +234,7 @@
   }
 
   .logo img {
-    width: 400px;
+    width: clamp(340px, 40vw, 445px);
   }
 
   .contact {
@@ -244,6 +242,7 @@
   }
 
   .menuButton,
+  .mobileContact,
   .drawer {
     display: none;
   }

@@ -32,9 +32,6 @@
   --font-serif: var(--font-shippori), "Hiragino Mincho ProN", "Yu Mincho", serif;
   --font-en: var(--font-cormorant), "Times New Roman", serif;
 
-  --radius-sm: 8px;
-  --radius: 14px;
-  --radius-lg: 24px;
   --shadow-sm: 0 1px 2px rgb(22 34 63 / 0.06), 0 2px 8px rgb(22 34 63 / 0.05);
   --shadow: 0 10px 30px -12px rgb(22 34 63 / 0.22);
   --shadow-lg: 0 24px 60px -24px rgb(22 34 63 / 0.35);
@@ -248,14 +245,10 @@ ol {
   color: var(--c-muted);
 }
 
-.entry img {
-  border-radius: var(--radius);
-}
-
+/* 画像は実寸を上限に表示（拡大しない） */
 .entry .alignright {
   display: block;
-  width: 100%;
-  margin: 0 0 1.6em;
+  margin: 0 auto 1.6em;
 }
 
 .entry .aligncenter {
@@ -266,7 +259,6 @@ ol {
 @media (min-width: 768px) {
   .entry .alignright {
     float: right;
-    width: auto;
     max-width: min(42%, 380px);
     margin: 0.5em 0 1.4em 2.4em;
   }
@@ -323,7 +315,6 @@ ol {
 
 .entry .callout {
   padding: 1em 1.4em;
-  border-radius: var(--radius);
   background: var(--c-red-soft);
   line-height: 1.7;
 }
@@ -338,7 +329,6 @@ ol {
   margin: 0;
   padding: 0.9em 1.2em;
   border-left: 3px solid var(--c-gold);
-  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
   background: var(--c-surface-soft);
   font-size: 1.05em;
   line-height: 1.8;
@@ -349,7 +339,6 @@ ol {
   margin: 2em 0;
   padding: clamp(20px, 3.4vw, 36px);
   border: 1px solid var(--c-line);
-  border-radius: var(--radius-lg);
   background: var(--c-surface-soft);
 }
 
@@ -459,7 +448,6 @@ ol {
 .not-found__back a {
   display: inline-block;
   padding: 14px 36px;
-  border-radius: 999px;
   background: var(--c-navy);
   color: #fff;
   font-weight: 700;

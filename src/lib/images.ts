@@ -1,6 +1,9 @@
 // public/images 配下の画像サイズ（旧サイトから取得した画像の実寸）
 export const imageSizes = {
+  "/images/mfp/mfp_header.png": [960, 200],
+  "/images/theme/images/arrow.png": [7, 7],
   "/images/theme/images/logo.png": [445, 65],
+  "/images/theme/images/menuOpen.png": [28, 66],
   "/images/theme/img/about/img_001.jpg": [280, 185],
   "/images/theme/img/about/img_002.jpg": [640, 445],
   "/images/theme/img/access/img_001.jpg": [230, 150],
@@ -52,8 +55,10 @@ export const imageSizes = {
   "/images/theme/img/top/img_004.jpg": [215, 180],
   "/images/theme/img/top/img_005.jpg": [450, 180],
   "/images/theme/img/top/km_ban.png": [449, 20],
+  "/images/theme/img/top/m_001.png": [115, 94],
   "/images/theme/img_cmn/footer_hp.png": [160, 47],
   "/images/theme/img_cmn/footer_logo.png": [304, 24],
+  "/images/theme/img_cmn/icon_tel.png": [20, 20],
   "/images/theme/img_cmn/icon_top.png": [50, 50],
   "/images/theme/img_cmn/img_group_a1.jpg": [960, 500],
   "/images/theme/img_cmn/img_group_a2.jpg": [960, 500],
@@ -73,6 +78,7 @@ export const imageSizes = {
   "/images/theme/img_cmn/img_group_c4.jpg": [960, 500],
   "/images/theme/img_cmn/img_group_c5.jpg": [960, 500],
   "/images/theme/img_cmn/img_group_c6.jpg": [960, 500],
+  "/images/theme/img_cmn/li_sub.png": [13, 13],
   "/images/uploads/2018/08/0aa3323a6b90a04379e4e02db137fbac-1024x684.jpg": [1024, 684],
   "/images/uploads/2018/08/466e0de9c9d4379d5a312d56c666015f-1024x685.jpg": [1024, 685],
   "/images/uploads/2018/08/619046237c889e883e8c67cc5a6d207a-1024x684.jpg": [1024, 684],

@@ -35,7 +35,7 @@ export function SiteHeader() {
                 src="/images/theme/images/logo.png"
                 alt={SITE_NAME}
                 preload
-                sizes="(min-width: 900px) 400px, 260px"
+                sizes="(min-width: 900px) 445px, 260px"
               />
             </Link>
           </LogoTag>
@@ -44,6 +44,7 @@ export function SiteHeader() {
             <p>
               <span className={styles.contactLabel}>お電話でのお問い合わせ：</span>
               <a href={TEL_HREF} className={`tel ${styles.tel}`}>
+                <Img src="/images/theme/img_cmn/icon_tel.png" alt="" className={styles.telIcon} />
                 {TEL}
               </a>
               <br />
@@ -58,14 +59,24 @@ export function SiteHeader() {
             aria-controls="mobile-menu"
             onClick={() => setOpen((v) => !v)}
           >
-            <span className={styles.burger} aria-hidden="true">
-              <span />
-              <span />
-            </span>
+            <span className={styles.menuIcon} aria-hidden="true" />
             <span className={styles.menuLabel}>MENU</span>
           </button>
         </div>
       </header>
+
+      {/* スマートフォンでは旧サイト同様、ロゴの下に電話番号を表示（スクロールで隠れる） */}
+      <div className={styles.mobileContact}>
+        <p>
+          <span className={styles.contactLabel}>お電話でのお問い合わせ：</span>
+          <a href={TEL_HREF} className={`tel ${styles.tel}`}>
+            <Img src="/images/theme/img_cmn/icon_tel.png" alt="" className={styles.telIcon} />
+            {TEL}
+          </a>
+          <br />
+          <span className={styles.contactUnder}>実行委員会 （株）馬事学院 事務局内</span>
+        </p>
+      </div>
 
       {/* backdrop-filter を持つ header の外に置き、position: fixed をビューポート基準にする */}
       <div id="mobile-menu" className={styles.drawer} data-open={open} inert={!open}>
@@ -86,7 +97,10 @@ export function SiteHeader() {
           </ul>
           <a href={TEL_HREF} className={styles.drawerTel}>
             <span>お電話でのお問い合わせ：</span>
-            <span className="tel">{TEL}</span>
+            <span className="tel">
+              <Img src="/images/theme/img_cmn/icon_tel.png" alt="" className={styles.telIcon} />
+              {TEL}
+            </span>
             <small>実行委員会 （株）馬事学院 事務局内</small>
           </a>
         </nav>

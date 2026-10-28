@@ -22,7 +22,6 @@ export function Sidebar() {
                     </span>
                   ))}
                 </span>
-                <i aria-hidden="true" />
               </Link>
             </li>
           ))}

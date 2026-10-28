@@ -2,7 +2,6 @@
   position: relative;
   margin: 2em 0 3em;
   aspect-ratio: 16 / 9;
-  border-radius: var(--radius-lg);
   overflow: hidden;
   background: var(--c-bg-deep);
   box-shadow: var(--shadow-sm);

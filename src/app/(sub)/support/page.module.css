@@ -2,7 +2,6 @@
   display: block;
   max-width: 640px;
   margin: 1em auto 2em;
-  border-radius: var(--radius);
   overflow: hidden;
   border: 1px solid var(--c-line);
   transition: box-shadow 0.3s;
@@ -16,7 +15,6 @@
   display: block;
   width: 100%;
   margin: 0;
-  border-radius: 0;
 }
 
 .sponsors {

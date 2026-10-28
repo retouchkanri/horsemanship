@@ -1,57 +1,50 @@
 .root {
-  --w: min(960px, 100vw - var(--gutter) * 2 - 24px);
-  --gap: 20px;
   position: relative;
-  padding: 16px 0 8px;
+  padding-bottom: 8px;
   overflow: hidden;
   background: var(--c-bg);
   user-select: none;
   -webkit-user-select: none;
 }
 
-.root[data-compact="true"] {
-  --w: min(760px, 100vw - var(--gutter) * 2 - 24px);
-}
-
-@media (min-width: 900px) {
-  .root {
-    --gap: 32px;
-    padding-top: 8px;
-  }
-}
-
+/* 旧サイトと同じく画像は実寸（960×500）で表示し、画面幅が狭いときは幅いっぱいに縮小する */
 .stage {
   position: relative;
-  height: calc(var(--w) * 500 / 960);
+  width: min(960px, 100%);
+  margin-inline: auto;
+  aspect-ratio: 960 / 500;
   touch-action: pan-y;
 }
 
 .slide {
   position: absolute;
-  top: 0;
-  left: 50%;
-  width: var(--w);
-  aspect-ratio: 960 / 500;
-  border-radius: clamp(12px, 2vw, 22px);
-  overflow: hidden;
+  inset: 0;
   background: var(--c-bg-deep);
-  box-shadow: var(--shadow);
-  transform: translateX(calc(-50% + var(--offset) * (var(--w) + var(--gap)))) scale(var(--scale, 1));
+  transform: translateX(calc(var(--offset) * 100%));
   transition:
-    transform 1s var(--ease),
-    opacity 1s var(--ease),
-    filter 1s var(--ease);
+    transform 0.7s var(--ease),
+    opacity 0.7s var(--ease);
+}
+
+.slide::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.7s var(--ease);
 }
 
 .slide[data-pos="side"] {
-  --scale: 0.9;
-  opacity: 0.45;
-  filter: saturate(0.6);
   cursor: pointer;
 }
 
+.slide[data-pos="side"]::after {
+  opacity: 0.5;
+}
+
 .slide[data-pos="hidden"] {
-  --scale: 0.9;
   opacity: 0;
   pointer-events: none;
 }
@@ -65,12 +58,6 @@
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  transition: transform 1.2s var(--ease);
-}
-
-.slide[data-pos="center"]:hover img {
-  transform: scale(1.025);
 }
 
 .controls {
@@ -88,7 +75,6 @@
   height: 40px;
   padding: 0;
   border: 1px solid var(--c-line-strong);
-  border-radius: 50%;
   background: var(--c-surface);
   color: var(--c-navy);
   cursor: pointer;
@@ -124,7 +110,6 @@
   height: 8px;
   padding: 0;
   border: 0;
-  border-radius: 999px;
   background: var(--c-line-strong);
   overflow: hidden;
   cursor: pointer;

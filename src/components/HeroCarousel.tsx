@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useRef, useState, useSyncExternalStore, type CSSProperties } from "react";
 import { Img } from "./Img";
 import { sliderGroups } from "@/lib/site";
@@ -20,8 +19,6 @@ const getServerGroup = () => 0;
 const pad = (n: number) => String(n).padStart(2, "0");
 
 export function HeroCarousel() {
-  const pathname = usePathname();
-  const compact = !(pathname === "/" || pathname === "/page/2/");
   const group = useSyncExternalStore(subscribe, getClientGroup, getServerGroup);
   const slides = sliderGroups[group];
   const count = slides.length;
@@ -36,7 +33,6 @@ export function HeroCarousel() {
   return (
     <div
       className={styles.root}
-      data-compact={compact}
       data-paused={paused}
       role="region"
       aria-roledescription="carousel"
@@ -63,7 +59,7 @@ export function HeroCarousel() {
         }}
       >
         {slides.map((src, i) => {
-          // アクティブスライドからの相対位置（-3〜2）。左右1枚ずつを覗かせる
+          // アクティブスライドからの相対位置（-3〜2）。旧サイト同様、左右の1枚を半透明の白で覆って見せる
           const offset = ((i - active + count + Math.floor(count / 2)) % count) - Math.floor(count / 2);
           const pos = offset === 0 ? "center" : Math.abs(offset) === 1 ? "side" : "hidden";
           return (
@@ -98,7 +94,7 @@ export function HeroCarousel() {
                   alt=""
                   loading="eager"
                   fetchPriority={i === 0 ? "high" : "auto"}
-                  sizes="(min-width: 1120px) 960px, 86vw"
+                  sizes="(min-width: 960px) 960px, 100vw"
                   draggable={false}
                 />
               </Link>

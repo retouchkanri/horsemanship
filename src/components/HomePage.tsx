@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Img } from "./Img";
-import { categories, formatDateJa, postPath, postsInCategory } from "@/lib/posts";
+import { formatDateJa, postPath, postsInCategory } from "@/lib/posts";
 import type { ImageSrc } from "@/lib/images";
 import styles from "./HomePage.module.css";
 
@@ -19,11 +19,9 @@ export function HomePage() {
   return (
     <>
       <div className={styles.lineBox}>
-        <div className="container">
+        <div className={`container ${styles.narrow}`}>
           <div className={styles.newsBox}>
-            <p className={styles.newsLabel}>
-              <span>{categories.news.name}</span>
-            </p>
+            <Img src="/images/theme/img/top/m_001.png" alt="NEWS" className={styles.newsIcon} />
             <ul>
               {news.map((post) => (
                 <li key={post.id}>
@@ -39,7 +37,7 @@ export function HomePage() {
       </div>
 
       <div id="wrapper" className={styles.wrapper}>
-        <section className={`container ${styles.grid}`}>
+        <section className={`container ${styles.narrow} ${styles.grid}`}>
           <div className={styles.columnLeft}>
             <div className={`${styles.topics} reveal`}>
               <h2 className={styles.heading}>
@@ -59,7 +57,7 @@ export function HomePage() {
                 {topics.map((post) => (
                   <li key={post.id}>
                     <Link href={postPath(post)} className={styles.thumb} tabIndex={-1} aria-hidden="true">
-                      <Img src={post.image} alt="" sizes="(min-width: 640px) 168px, 120px" />
+                      <Img src={post.image} alt="" sizes="(min-width: 640px) 150px, 120px" />
                     </Link>
                     <div className={styles.topicBody}>
                       <time dateTime={post.date}>{formatDateJa(post.date)}</time>
@@ -78,7 +76,7 @@ export function HomePage() {
                 <Img
                   src="/images/theme/img/top/ban_boshu_21_2.png"
                   alt="第21回 全国中高生馬術選手権大会 参加者募集中!!"
-                  sizes="(min-width: 1080px) 640px, 100vw"
+                  sizes="(min-width: 489px) 449px, 100vw"
                 />
               </Link>
             </div>
@@ -91,7 +89,7 @@ export function HomePage() {
                   <Img
                     src={item.src}
                     alt={item.alt}
-                    sizes={item.wide ? "(min-width: 1080px) 460px, 100vw" : "(min-width: 1080px) 225px, 50vw"}
+                    sizes={item.wide ? "(min-width: 490px) 450px, 100vw" : "(min-width: 490px) 215px, 50vw"}
                   />
                 </Link>
               ))}

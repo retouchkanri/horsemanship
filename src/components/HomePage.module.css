@@ -1,45 +1,50 @@
+/* トップページは旧サイトと同じ幅 960px に収め、画像を実寸で表示する */
+.narrow {
+  --container: 960px;
+}
+
 /* お知らせバー */
 .lineBox {
-  padding: 28px 0 0;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--c-line);
 }
 
 .newsBox {
   display: flex;
-  align-items: stretch;
-  overflow: hidden;
-  border-radius: 999px;
-  background: var(--c-surface);
-  box-shadow: var(--shadow-sm);
-}
-
-.newsLabel {
-  flex: none;
-  display: flex;
   align-items: center;
-  padding: 0 20px;
-  background: var(--c-red);
-  color: #fff;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
+  gap: 16px;
 }
 
 @media (min-width: 640px) {
-  .newsLabel {
-    padding: 0 28px;
+  .newsBox {
+    gap: 32px;
   }
+}
+
+.newsIcon {
+  flex: none;
+  width: 115px;
+  height: auto;
 }
 
 .newsBox ul {
   flex: 1;
   min-width: 0;
+  padding-left: 16px;
+  border-left: 1px solid var(--c-line);
   list-style: none;
+}
+
+@media (min-width: 640px) {
+  .newsBox ul {
+    padding-left: 32px;
+  }
 }
 
 .newsBox a {
   position: relative;
   display: block;
-  padding: 14px 52px 14px 18px;
+  padding: 10px 44px 10px 0;
   font-size: 14px;
   font-weight: 500;
   line-height: 1.6;
@@ -48,7 +53,6 @@
 
 @media (min-width: 640px) {
   .newsBox a {
-    padding-left: 24px;
     font-size: 15px;
   }
 }
@@ -60,14 +64,13 @@
 .newsBox i,
 .more i {
   position: absolute;
-  right: 14px;
+  right: 0;
   top: 50%;
   width: 26px;
   height: 26px;
-  border-radius: 50%;
-  background: var(--c-bg);
+  border: 1px solid var(--c-line-strong);
   transform: translateY(-50%);
-  transition: background 0.3s;
+  transition: background 0.3s, border-color 0.3s;
 }
 
 .newsBox i::after,
@@ -85,6 +88,7 @@
 
 .newsBox a:hover i {
   background: var(--c-red);
+  border-color: var(--c-red);
 }
 
 .newsBox a:hover i::after {
@@ -93,19 +97,22 @@
 
 /* 2カラム */
 .wrapper {
-  padding-top: clamp(40px, 6vw, 72px);
+  padding-top: clamp(32px, 5vw, 48px);
 }
 
 .grid {
   display: grid;
-  gap: 56px;
+  justify-items: center;
+  gap: 48px;
 }
 
-@media (min-width: 1080px) {
+@media (min-width: 1000px) {
   .grid {
-    grid-template-columns: minmax(0, 1fr) 460px;
-    gap: 56px;
+    grid-template-columns: minmax(0, 449px) 450px;
+    justify-content: space-between;
+    justify-items: stretch;
     align-items: start;
+    gap: 40px;
   }
 }
 
@@ -113,6 +120,8 @@
 .columnRight {
   display: grid;
   gap: 40px;
+  width: 100%;
+  max-width: 450px;
   min-width: 0;
 }
 
@@ -128,7 +137,7 @@
 .headingEn {
   grid-column: 1;
   font-family: var(--font-en);
-  font-size: clamp(44px, 6vw, 64px);
+  font-size: clamp(44px, 6vw, 56px);
   font-weight: 500;
   line-height: 1;
   letter-spacing: 0.04em;
@@ -162,9 +171,8 @@
 .more a {
   position: relative;
   display: inline-block;
-  padding: 10px 52px 10px 22px;
+  padding: 8px 44px 8px 18px;
   border: 1px solid var(--c-line-strong);
-  border-radius: 999px;
   background: var(--c-surface);
   font-size: 14px;
   font-weight: 500;
@@ -174,6 +182,7 @@
 
 .more i {
   right: 8px;
+  border: 0;
 }
 
 .more a:hover {
@@ -182,52 +191,55 @@
   color: #fff;
 }
 
+.more a:hover i::after {
+  border-color: #fff;
+}
+
 /* トピックス */
 .topics {
-  padding: clamp(28px, 4vw, 44px);
-  border-radius: var(--radius-lg);
+  padding: 28px 24px;
   background: var(--c-surface);
   box-shadow: var(--shadow-sm);
 }
 
 .topicList {
   list-style: none;
-  border-top: 1px solid var(--c-line);
+  border-top: 2px solid var(--c-red);
 }
 
 .topicList li {
   display: grid;
   grid-template-columns: 120px 1fr;
-  gap: 18px;
+  gap: 16px;
   align-items: center;
-  padding: 18px 0;
+  padding: 16px 0;
   border-bottom: 1px solid var(--c-line);
 }
 
 @media (min-width: 640px) {
   .topicList li {
-    grid-template-columns: 168px 1fr;
-    gap: 28px;
+    grid-template-columns: 150px 1fr;
+    gap: 20px;
   }
 }
 
+/* サムネイルは旧サイトと同じ 3:2（150×100）で、トリミングや加工をせずに表示 */
 .thumb {
   display: block;
   aspect-ratio: 3 / 2;
-  border-radius: var(--radius);
   overflow: hidden;
   background: var(--c-bg-deep);
+  transition: opacity 0.3s;
 }
 
 .thumb img {
+  display: block;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.8s var(--ease);
+  height: auto;
 }
 
-.topicList li:hover .thumb img {
-  transform: scale(1.06);
+.topicList li:hover .thumb {
+  opacity: 0.8;
 }
 
 .topicBody {
@@ -249,61 +261,40 @@
 }
 
 .topicTitle {
-  font-size: 15px;
+  font-size: 14.5px;
   font-weight: 500;
   transition: color 0.25s;
-}
-
-@media (min-width: 640px) {
-  .topicTitle {
-    font-size: 16px;
-  }
 }
 
 .topicList li:hover .topicTitle {
   color: var(--c-red);
 }
 
-/* バナー */
+/* バナー・コンテンツメニュー：画像は実寸のまま（狭い画面では縮小のみ） */
 .banner a,
+.menu a,
 .sponsorLink {
   display: block;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  box-shadow: var(--shadow-sm);
-  transition: transform 0.45s var(--ease), box-shadow 0.45s var(--ease);
+  transition: opacity 0.3s;
 }
 
 .banner a:hover,
+.menu a:hover,
 .sponsorLink:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow);
+  opacity: 0.8;
 }
 
 .banner img {
   display: block;
-  width: 100%;
+  width: 449px;
+  max-width: 100%;
 }
 
-/* コンテンツメニュー */
 .menu {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
-}
-
-.menu a {
-  display: block;
-  border-radius: var(--radius);
-  overflow: hidden;
-  background: var(--c-surface);
-  box-shadow: var(--shadow-sm);
-  transition: transform 0.45s var(--ease), box-shadow 0.45s var(--ease);
-}
-
-.menu a:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow);
+  grid-template-columns: repeat(2, minmax(0, 215px));
+  justify-content: space-between;
+  gap: 20px;
 }
 
 .menu img {
@@ -321,11 +312,7 @@
   gap: 16px;
 }
 
-.sponsorLink {
-  border-radius: var(--radius);
-  background: #fff;
-}
-
-.sponsorLink img {
+.sponsor img {
   display: block;
+  max-width: 100%;
 }
