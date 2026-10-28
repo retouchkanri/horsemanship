@@ -1,0 +1,24 @@
+.wrapper {
+  padding-top: clamp(28px, 5vw, 56px);
+}
+
+.grid {
+  display: grid;
+  gap: 40px;
+}
+
+@media (min-width: 1080px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr) 320px;
+    gap: 48px;
+    align-items: start;
+  }
+}
+
+.content {
+  min-width: 0;
+  padding: clamp(28px, 5vw, 64px) clamp(20px, 5vw, 64px);
+  border-radius: var(--radius-lg);
+  background: var(--c-surface);
+  box-shadow: var(--shadow-sm);
+}

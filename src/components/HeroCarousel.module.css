@@ -1,0 +1,179 @@
+.root {
+  --w: min(960px, 100vw - var(--gutter) * 2 - 24px);
+  --gap: 20px;
+  position: relative;
+  padding: 16px 0 8px;
+  overflow: hidden;
+  background: var(--c-bg);
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.root[data-compact="true"] {
+  --w: min(760px, 100vw - var(--gutter) * 2 - 24px);
+}
+
+@media (min-width: 900px) {
+  .root {
+    --gap: 32px;
+    padding-top: 8px;
+  }
+}
+
+.stage {
+  position: relative;
+  height: calc(var(--w) * 500 / 960);
+  touch-action: pan-y;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: var(--w);
+  aspect-ratio: 960 / 500;
+  border-radius: clamp(12px, 2vw, 22px);
+  overflow: hidden;
+  background: var(--c-bg-deep);
+  box-shadow: var(--shadow);
+  transform: translateX(calc(-50% + var(--offset) * (var(--w) + var(--gap)))) scale(var(--scale, 1));
+  transition:
+    transform 1s var(--ease),
+    opacity 1s var(--ease),
+    filter 1s var(--ease);
+}
+
+.slide[data-pos="side"] {
+  --scale: 0.9;
+  opacity: 0.45;
+  filter: saturate(0.6);
+  cursor: pointer;
+}
+
+.slide[data-pos="hidden"] {
+  --scale: 0.9;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.slide a {
+  display: block;
+  height: 100%;
+}
+
+.slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s var(--ease);
+}
+
+.slide[data-pos="center"]:hover img {
+  transform: scale(1.025);
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.arrow {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 1px solid var(--c-line-strong);
+  border-radius: 50%;
+  background: var(--c-surface);
+  color: var(--c-navy);
+  cursor: pointer;
+  transition: background 0.25s, color 0.25s, border-color 0.25s;
+}
+
+.arrow:hover {
+  background: var(--c-navy);
+  border-color: var(--c-navy);
+  color: #fff;
+}
+
+.arrow svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.dots {
+  display: flex;
+  gap: 8px;
+  list-style: none;
+}
+
+.dots button {
+  position: relative;
+  display: block;
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: var(--c-line-strong);
+  overflow: hidden;
+  cursor: pointer;
+  transition: width 0.5s var(--ease), background 0.3s;
+}
+
+.dots button[aria-current="true"] {
+  width: 44px;
+  background: var(--c-line);
+}
+
+.progress {
+  position: absolute;
+  inset: 0;
+  background: var(--c-red);
+  transform-origin: left center;
+  animation: progress 5.5s linear forwards;
+}
+
+.root[data-paused="true"] .progress {
+  animation-play-state: paused;
+}
+
+@keyframes progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .progress {
+    animation: none;
+    transform: none;
+  }
+}
+
+.counter {
+  min-width: 64px;
+  font-family: var(--font-en);
+  font-size: 15px;
+  letter-spacing: 0.12em;
+  color: var(--c-muted);
+  text-align: center;
+}
+
+.counter span {
+  color: var(--c-ink);
+  font-weight: 600;
+}

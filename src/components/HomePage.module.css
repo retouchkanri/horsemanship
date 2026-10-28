@@ -1,0 +1,331 @@
+/* お知らせバー */
+.lineBox {
+  padding: 28px 0 0;
+}
+
+.newsBox {
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--c-surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.newsLabel {
+  flex: none;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  background: var(--c-red);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+@media (min-width: 640px) {
+  .newsLabel {
+    padding: 0 28px;
+  }
+}
+
+.newsBox ul {
+  flex: 1;
+  min-width: 0;
+  list-style: none;
+}
+
+.newsBox a {
+  position: relative;
+  display: block;
+  padding: 14px 52px 14px 18px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.6;
+  transition: color 0.25s;
+}
+
+@media (min-width: 640px) {
+  .newsBox a {
+    padding-left: 24px;
+    font-size: 15px;
+  }
+}
+
+.newsBox a:hover {
+  color: var(--c-red);
+}
+
+.newsBox i,
+.more i {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--c-bg);
+  transform: translateY(-50%);
+  transition: background 0.3s;
+}
+
+.newsBox i::after,
+.more i::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 45%;
+  width: 6px;
+  height: 6px;
+  border-top: 1.5px solid var(--c-navy);
+  border-right: 1.5px solid var(--c-navy);
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.newsBox a:hover i {
+  background: var(--c-red);
+}
+
+.newsBox a:hover i::after {
+  border-color: #fff;
+}
+
+/* 2カラム */
+.wrapper {
+  padding-top: clamp(40px, 6vw, 72px);
+}
+
+.grid {
+  display: grid;
+  gap: 56px;
+}
+
+@media (min-width: 1080px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr) 460px;
+    gap: 56px;
+    align-items: start;
+  }
+}
+
+.columnLeft,
+.columnRight {
+  display: grid;
+  gap: 40px;
+  min-width: 0;
+}
+
+/* 見出し */
+.heading {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.headingEn {
+  grid-column: 1;
+  font-family: var(--font-en);
+  font-size: clamp(44px, 6vw, 64px);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  color: var(--c-navy);
+}
+
+.headingJa {
+  grid-column: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+  font-size: 14px;
+  letter-spacing: 0.14em;
+  color: var(--c-red);
+}
+
+.headingJa::before {
+  content: "";
+  width: 20px;
+  height: 1px;
+  background: currentColor;
+}
+
+.more {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: end;
+}
+
+.more a {
+  position: relative;
+  display: inline-block;
+  padding: 10px 52px 10px 22px;
+  border: 1px solid var(--c-line-strong);
+  border-radius: 999px;
+  background: var(--c-surface);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  transition: background 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.more i {
+  right: 8px;
+}
+
+.more a:hover {
+  background: var(--c-navy);
+  border-color: var(--c-navy);
+  color: #fff;
+}
+
+/* トピックス */
+.topics {
+  padding: clamp(28px, 4vw, 44px);
+  border-radius: var(--radius-lg);
+  background: var(--c-surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.topicList {
+  list-style: none;
+  border-top: 1px solid var(--c-line);
+}
+
+.topicList li {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 18px;
+  align-items: center;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--c-line);
+}
+
+@media (min-width: 640px) {
+  .topicList li {
+    grid-template-columns: 168px 1fr;
+    gap: 28px;
+  }
+}
+
+.thumb {
+  display: block;
+  aspect-ratio: 3 / 2;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--c-bg-deep);
+}
+
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s var(--ease);
+}
+
+.topicList li:hover .thumb img {
+  transform: scale(1.06);
+}
+
+.topicBody {
+  line-height: 1.7;
+}
+
+.topicBody br {
+  display: none;
+}
+
+.topicBody time {
+  display: block;
+  margin-bottom: 4px;
+  font-family: var(--font-en);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--c-gold);
+}
+
+.topicTitle {
+  font-size: 15px;
+  font-weight: 500;
+  transition: color 0.25s;
+}
+
+@media (min-width: 640px) {
+  .topicTitle {
+    font-size: 16px;
+  }
+}
+
+.topicList li:hover .topicTitle {
+  color: var(--c-red);
+}
+
+/* バナー */
+.banner a,
+.sponsorLink {
+  display: block;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.45s var(--ease), box-shadow 0.45s var(--ease);
+}
+
+.banner a:hover,
+.sponsorLink:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+
+.banner img {
+  display: block;
+  width: 100%;
+}
+
+/* コンテンツメニュー */
+.menu {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.menu a {
+  display: block;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--c-surface);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.45s var(--ease), box-shadow 0.45s var(--ease);
+}
+
+.menu a:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+
+.menu img {
+  display: block;
+  width: 100%;
+}
+
+.menu .menuWide {
+  grid-column: 1 / -1;
+}
+
+.sponsor {
+  display: grid;
+  justify-items: center;
+  gap: 16px;
+}
+
+.sponsorLink {
+  border-radius: var(--radius);
+  background: #fff;
+}
+
+.sponsorLink img {
+  display: block;
+}

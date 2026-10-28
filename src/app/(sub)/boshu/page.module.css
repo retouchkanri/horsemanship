@@ -1,0 +1,156 @@
+.badge {
+  display: inline-block;
+  margin-bottom: 1.2em;
+  padding: 4px 16px;
+  border-radius: 999px;
+  background: var(--c-gold-soft);
+  color: #7a5a26;
+  font-size: 0.92em;
+  font-weight: 700;
+  line-height: 1.8;
+}
+
+.requirements {
+  margin: 2.4em 0;
+  border: 1px solid var(--c-line);
+  border-radius: var(--radius-lg);
+  background: var(--c-surface-soft);
+  overflow: hidden;
+}
+
+.requirements > div {
+  display: grid;
+  gap: 8px;
+  padding: 22px clamp(18px, 3vw, 32px);
+}
+
+.requirements > div + div {
+  border-top: 1px solid var(--c-line);
+}
+
+@media (min-width: 900px) {
+  .requirements > div {
+    grid-template-columns: 15em minmax(0, 1fr);
+    gap: 24px;
+  }
+}
+
+.requirements dt {
+  font-family: var(--font-serif);
+  font-size: 1.02em;
+  line-height: 1.8;
+  color: var(--c-navy);
+  white-space: nowrap;
+}
+
+.requirements dd {
+  min-width: 0;
+  line-height: 2;
+}
+
+.requirements > div[data-tone="wine"] dt {
+  color: var(--em-wine);
+}
+
+.requirements > div[data-tone="wine-u"] dt,
+.requirements > div[data-tone="wine-u"] dd {
+  color: var(--em-wine);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.3em;
+}
+
+.bg {
+  display: inline-block;
+  margin-top: 0.4em;
+  padding: 0 10px;
+  border-radius: 4px;
+  background: #e3efe3;
+  color: #1e5a2e;
+  font-weight: 700;
+}
+
+.period {
+  margin-bottom: 0.8em;
+  font-size: 1.08em;
+}
+
+.day + .day {
+  margin-top: 1.4em;
+}
+
+.dayLabel {
+  display: inline-block;
+  margin-bottom: 0.6em;
+  padding: 2px 14px;
+  border-radius: 999px;
+  background: var(--c-navy);
+  color: #fff;
+  font-size: 0.92em;
+}
+
+.timeline {
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 18px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 0.9em;
+  bottom: 0.9em;
+  left: 4px;
+  width: 1px;
+  background: var(--c-line-strong);
+}
+
+.timeline li {
+  position: relative;
+  display: grid;
+  grid-template-columns: 6.5em minmax(0, 1fr);
+  gap: 12px;
+  margin: 0;
+  padding: 6px 0;
+  line-height: 1.8;
+}
+
+.timeline li + li {
+  margin-top: 0;
+}
+
+.timeline li::before {
+  content: "";
+  position: absolute;
+  top: calc(6px + 0.9em - 4px);
+  left: -18px;
+  width: 9px;
+  height: 9px;
+  border: 1px solid var(--c-line-strong);
+  border-radius: 50%;
+  background: var(--c-surface);
+}
+
+.timeline li[data-main="true"]::before {
+  border-color: var(--c-red);
+  background: var(--c-red);
+}
+
+.time {
+  font-variant-numeric: tabular-nums;
+  color: var(--c-ink-soft);
+  white-space: nowrap;
+}
+
+.timeline li[data-main="true"] .event {
+  color: var(--c-red);
+}
+
+.scheduleNote {
+  margin: 1.4em 0 0;
+  padding-top: 1em;
+  border-top: 1px dashed var(--c-line-strong);
+  font-size: 0.92em;
+  color: var(--c-ink-soft);
+}

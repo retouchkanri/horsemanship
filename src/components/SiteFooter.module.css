@@ -1,0 +1,172 @@
+.footer {
+  position: relative;
+  margin-top: clamp(72px, 10vw, 128px);
+  padding: clamp(56px, 8vw, 88px) 0 clamp(48px, 6vw, 72px);
+  background: var(--c-navy);
+  color: rgb(255 255 255 / 0.88);
+  overflow: hidden;
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: min(var(--container), 100% - var(--gutter) * 2);
+  height: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, transparent, var(--c-gold), transparent);
+  opacity: 0.6;
+}
+
+.inner {
+  display: grid;
+  gap: 48px;
+}
+
+@media (min-width: 960px) {
+  .inner {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    gap: 64px;
+    align-items: start;
+  }
+}
+
+.info {
+  display: grid;
+  justify-items: start;
+  gap: 18px;
+}
+
+.footerLogo {
+  width: 304px;
+  max-width: 100%;
+}
+
+.footerHp {
+  width: 160px;
+}
+
+.address {
+  font-size: 13.5px;
+  line-height: 2.1;
+  letter-spacing: 0.06em;
+}
+
+.address a {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+  text-decoration-color: var(--c-gold);
+}
+
+.address .tel {
+  font-size: 1.2em;
+  text-decoration: none;
+}
+
+.menu {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 24px;
+  list-style: none;
+}
+
+.menu li {
+  border-bottom: 1px solid rgb(255 255 255 / 0.12);
+}
+
+.menu a {
+  position: relative;
+  display: block;
+  padding: 12px 18px 12px 0;
+  font-size: 13.5px;
+  line-height: 1.6;
+  transition: color 0.25s, padding 0.3s var(--ease);
+}
+
+.menu a::after {
+  content: "";
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  border-top: 1px solid currentColor;
+  border-right: 1px solid currentColor;
+  transform: translateY(-50%) rotate(45deg);
+  opacity: 0.6;
+}
+
+.menu a:hover {
+  color: var(--c-gold);
+  padding-left: 6px;
+}
+
+.area {
+  padding: 32px 0;
+  background: var(--c-bg-deep);
+  font-size: 12px;
+  line-height: 2;
+  color: var(--c-ink-soft);
+}
+
+.areaBox {
+  display: grid;
+  gap: 8px;
+}
+
+.areaBox + .areaBox {
+  margin-top: 20px;
+}
+
+@media (min-width: 768px) {
+  .areaBox {
+    grid-template-columns: 140px 1fr;
+    gap: 20px;
+    align-items: start;
+  }
+}
+
+.areaLabel {
+  justify-self: start;
+  padding: 2px 14px;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+}
+
+.areaLabel[data-tone="green"] {
+  background: #3d6b4f;
+}
+
+.areaLabel[data-tone="blue"] {
+  background: #2f4f86;
+}
+
+.areaLinks a {
+  transition: color 0.2s;
+}
+
+.areaLinks a:hover {
+  color: var(--c-red);
+  text-decoration: underline;
+}
+
+.sep {
+  margin: 0 2px;
+  color: var(--c-line-strong);
+}
+
+.copyright {
+  padding: 18px 0;
+  background: #0f1830;
+  color: rgb(255 255 255 / 0.7);
+  font-family: var(--font-en);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-align: center;
+}

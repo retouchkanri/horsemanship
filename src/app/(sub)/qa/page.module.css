@@ -1,0 +1,54 @@
+.list {
+  display: grid;
+  gap: 20px;
+}
+
+.qa {
+  display: flow-root;
+  padding: clamp(20px, 3.4vw, 32px);
+  border: 1px solid var(--c-line);
+  border-radius: var(--radius-lg);
+  background: var(--c-surface-soft);
+}
+
+.qa .photo:global(.alignright) {
+  margin-bottom: 1em;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: 14px;
+  align-items: start;
+}
+
+.row + .row {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px dashed var(--c-line-strong);
+}
+
+.row .icon {
+  width: 34px;
+  height: 17px;
+  margin-top: 0.55em;
+  border-radius: 0;
+}
+
+/* .entry h2 の装飾を打ち消す */
+.row .question {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: var(--font-serif);
+  font-size: clamp(16px, 1.8vw, 18px);
+  line-height: 1.75;
+}
+
+.row .question::after {
+  content: none;
+}
+
+.answer {
+  line-height: 2;
+}
