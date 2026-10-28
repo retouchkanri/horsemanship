@@ -3,7 +3,7 @@
   max-width: 640px;
   margin: 1em auto 2em;
   overflow: hidden;
-  border: 1px solid var(--c-line);
+  border: 1px solid var(--c-line-strong);
   transition: box-shadow 0.3s;
 }
 
@@ -30,7 +30,7 @@
 .sponsors li {
   margin: 0;
   padding: 8px 0;
-  border-bottom: 1px dashed var(--c-line-strong);
+  border-bottom: 1px solid var(--c-line);
   line-height: 1.8;
 }
 
@@ -40,6 +40,6 @@
 
 .bullet {
   margin-right: 0.4em;
-  color: var(--c-gold);
+  color: var(--c-green);
   font-size: 0.8em;
 }

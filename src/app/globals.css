@@ -1,51 +1,57 @@
 /* ==========================================================================
-   Design tokens
+   Design tokens（配色・書体は HATME 株式会社サイトのトーンに合わせる）
    ========================================================================== */
 :root {
-  --c-bg: #f6f3ee;
-  --c-bg-deep: #ede7dc;
+  --c-bg: #ffffff;
+  --c-bg-gray: #f7f7f7;
   --c-surface: #ffffff;
-  --c-surface-soft: #faf8f4;
-  --c-ink: #1f2430;
-  --c-ink-soft: #4b505c;
-  --c-muted: #80838c;
-  --c-line: #e4ded3;
-  --c-line-strong: #cfc6b6;
-  --c-navy: #16223f;
-  --c-navy-soft: #24335a;
-  --c-red: #a30a14;
-  --c-red-soft: #f6e7e6;
-  --c-gold: #b38b4d;
-  --c-gold-soft: #f2eadb;
+  --c-surface-soft: #f7f7f7;
+  --c-ink: #333333;
+  --c-ink-soft: #666666;
+  --c-muted: #999999;
+  --c-line: #e8e8e8;
+  --c-line-strong: #d4d4d4;
+  --c-dark: #333333;
+  --c-dark-deep: #262626;
 
-  /* 本文中の強調色（旧サイトの文字色をトーンを揃えて置き換え） */
-  --em-red: #c01a22;
-  --em-navy: #1f2f6b;
+  --c-green: #00913a;
+  --c-green-light: #14d05f;
+  --c-green-dark: #007830;
+  --c-green-pale: #f1fbf3;
+  --c-green-soft: #deede0;
+  --c-yellowgreen: #55af0f;
+  --c-lime: #d4d701;
+  --c-blue: #2379b4;
+
+  --grad-green: linear-gradient(90deg, var(--c-green), var(--c-green-light));
+
+  /* 本文中の強調色（旧サイトの文字色を同系色のまま置き換え） */
+  --em-red: #ca0808;
+  --em-navy: #1f3a7a;
   --em-olive: #6d6a16;
-  --em-orange: #cf5f12;
-  --em-green: #2b7a3d;
+  --em-orange: #e97f02;
+  --em-green: #00913a;
   --em-wine: #8f1622;
   --em-pink: #c03a64;
-  --em-blue: #1f5aa8;
+  --em-blue: #0763ce;
 
-  --font-sans: var(--font-zen-kaku), "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif;
-  --font-serif: var(--font-shippori), "Hiragino Mincho ProN", "Yu Mincho", serif;
-  --font-en: var(--font-cormorant), "Times New Roman", serif;
+  --font-sans: var(--font-noto-sans), "Noto Sans JP", "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+  --font-en: var(--font-roboto), Roboto, "Helvetica Neue", Arial, sans-serif;
 
-  --shadow-sm: 0 1px 2px rgb(22 34 63 / 0.06), 0 2px 8px rgb(22 34 63 / 0.05);
-  --shadow: 0 10px 30px -12px rgb(22 34 63 / 0.22);
-  --shadow-lg: 0 24px 60px -24px rgb(22 34 63 / 0.35);
+  --shadow-sm: 0 2px 8px rgb(0 0 0 / 0.06);
+  --shadow: 0 6px 20px rgb(0 0 0 / 0.1);
+  --drop: drop-shadow(2px 2px 1.5px rgb(0 0 0 / 0.2));
   --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
 
   --container: 1200px;
   --gutter: 20px;
-  --header-h: 72px;
+  --header-h: 64px;
 }
 
 @media (min-width: 900px) {
   :root {
     --gutter: 40px;
-    --header-h: 96px;
+    --header-h: 90px;
   }
 }
 
@@ -85,11 +91,10 @@ body {
   color: var(--c-ink);
   font-family: var(--font-sans);
   font-size: 15px;
-  line-height: 1.9;
-  letter-spacing: 0.04em;
-  font-feature-settings: "palt" 1;
-  /* Cormorant Garamond の数字をオールドスタイルではなく揃った数字で表示（電話番号・日付の可読性） */
-  font-variant-numeric: lining-nums;
+  line-height: 1.75;
+  letter-spacing: 0.25px;
+  overflow-wrap: anywhere;
+  line-break: strict;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -141,12 +146,12 @@ ol {
 }
 
 :focus-visible {
-  outline: 2px solid var(--c-gold);
+  outline: 2px solid var(--c-green);
   outline-offset: 3px;
 }
 
 ::selection {
-  background: var(--c-gold-soft);
+  background: var(--c-green-soft);
   color: var(--c-ink);
 }
 
@@ -195,10 +200,8 @@ ol {
 .entry {
   display: flow-root;
   font-size: 15px;
-  line-height: 2.05;
-  letter-spacing: 0.05em;
+  line-height: 1.95;
   color: var(--c-ink);
-  overflow-wrap: anywhere;
 }
 
 @media (min-width: 900px) {
@@ -210,7 +213,7 @@ ol {
 .entry p,
 .entry ul,
 .entry ol {
-  margin-bottom: 1.3em;
+  margin-bottom: 1.4em;
 }
 
 .entry ul {
@@ -218,7 +221,7 @@ ol {
 }
 
 .entry li::marker {
-  color: var(--c-gold);
+  color: var(--c-green);
 }
 
 .entry li + li {
@@ -230,7 +233,7 @@ ol {
 }
 
 .entry a {
-  color: var(--c-red);
+  color: var(--c-green);
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 0.28em;
@@ -238,7 +241,8 @@ ol {
 }
 
 .entry a:hover {
-  color: var(--c-navy);
+  color: var(--c-green-dark);
+  text-decoration: none;
 }
 
 .entry del {
@@ -264,40 +268,32 @@ ol {
   }
 }
 
+/* 大見出し：緑の帯に白文字 */
 .entry .entry-heading,
 .entry h2 {
-  position: relative;
-  margin: 2.4em 0 1.1em;
-  padding-bottom: 0.7em;
-  font-family: var(--font-serif);
-  font-size: clamp(19px, 2.2vw, 23px);
+  clear: both;
+  margin: 2.4em 0 1.2em;
+  padding: 12px 16px 10px;
+  background: var(--c-green);
+  color: #fff;
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 700;
   line-height: 1.6;
-  letter-spacing: 0.06em;
-  border-bottom: 1px solid var(--c-line);
 }
 
-.entry .entry-heading::after,
-.entry h2::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -1px;
-  width: 56px;
-  height: 2px;
-  background: var(--c-gold);
-}
-
+/* 中見出し：薄いグレーの帯 */
 .entry h3 {
   margin: 2em 0 1em;
-  font-family: var(--font-serif);
-  font-size: 19px;
+  padding: 10px 16px 8px;
+  background: #efefef;
+  font-size: 17px;
+  font-weight: 700;
   line-height: 1.6;
 }
 
 .entry .lead {
-  font-family: var(--font-serif);
-  font-size: clamp(17px, 1.9vw, 19px);
+  font-size: clamp(16px, 1.8vw, 18px);
+  font-weight: 500;
   line-height: 1.9;
 }
 
@@ -309,13 +305,14 @@ ol {
 .entry .signature {
   margin-top: 2em;
   text-align: right;
-  font-family: var(--font-serif);
+  font-weight: 500;
   line-height: 1.8;
 }
 
 .entry .callout {
   padding: 1em 1.4em;
-  background: var(--c-red-soft);
+  border-left: 4px solid var(--c-green);
+  background: var(--c-green-pale);
   line-height: 1.7;
 }
 
@@ -328,8 +325,8 @@ ol {
 .entry .schedule p {
   margin: 0;
   padding: 0.9em 1.2em;
-  border-left: 3px solid var(--c-gold);
-  background: var(--c-surface-soft);
+  border-left: 4px solid var(--c-green);
+  background: var(--c-bg-gray);
   font-size: 1.05em;
   line-height: 1.8;
 }
@@ -338,8 +335,8 @@ ol {
   display: flow-root;
   margin: 2em 0;
   padding: clamp(20px, 3.4vw, 36px);
-  border: 1px solid var(--c-line);
-  background: var(--c-surface-soft);
+  border: 1px solid var(--c-line-strong);
+  background: var(--c-surface);
 }
 
 .entry .card > :last-child {
@@ -349,10 +346,8 @@ ol {
 .entry .label {
   display: block;
   margin-bottom: 0.4em;
-  font-family: var(--font-serif);
   font-weight: 700;
-  font-size: 1.15em;
-  letter-spacing: 0.08em;
+  font-size: 1.12em;
 }
 
 /* 強調色 */
@@ -388,7 +383,7 @@ ol {
 }
 
 .marker {
-  background: linear-gradient(transparent 60%, rgb(179 139 77 / 0.26) 60%);
+  background: linear-gradient(transparent 60%, rgb(212 215 1 / 0.35) 60%);
 }
 
 .fs-sm {
@@ -414,9 +409,9 @@ ol {
 }
 
 .tel {
-  font-family: var(--font-en);
-  font-weight: 600;
-  letter-spacing: 0.06em;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
 }
 
 /* ==========================================================================
@@ -430,15 +425,15 @@ ol {
 .not-found__code {
   font-family: var(--font-en);
   font-size: clamp(64px, 12vw, 120px);
+  font-weight: 700;
   line-height: 1;
-  color: var(--c-gold);
+  color: var(--c-green);
 }
 
 .not-found__title {
   margin: 16px 0;
-  font-family: var(--font-serif);
   font-size: clamp(20px, 3vw, 28px);
-  color: var(--c-navy);
+  font-weight: 700;
 }
 
 .not-found__back {
@@ -447,9 +442,14 @@ ol {
 
 .not-found__back a {
   display: inline-block;
-  padding: 14px 36px;
-  background: var(--c-navy);
+  padding: 14px 48px;
+  background: var(--grad-green);
   color: #fff;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  filter: var(--drop);
+  transition: opacity 0.3s;
+}
+
+.not-found__back a:hover {
+  opacity: 0.85;
 }

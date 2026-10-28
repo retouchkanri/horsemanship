@@ -11,52 +11,51 @@
   }
 }
 
+/* グレーの面に白い行を並べる */
 .widget {
-  padding: 28px 24px 16px;
-  background: var(--c-surface);
-  box-shadow: var(--shadow-sm);
+  padding: 24px 20px;
+  background: var(--c-bg-gray);
 }
 
 .title {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 8px;
+  gap: 10px;
+  margin-bottom: 16px;
   font-family: var(--font-en);
-  font-size: 22px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  color: var(--c-navy);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
 }
 
-.title::after {
+.title::before {
   content: "";
-  flex: 1;
-  height: 1px;
-  background: var(--c-line);
+  flex: none;
+  width: 12px;
+  height: 12px;
+  background: var(--c-green);
 }
 
 .menu {
+  display: grid;
+  gap: 8px;
   list-style: none;
-}
-
-.menu li + li {
-  border-top: 1px solid var(--c-line);
 }
 
 /* 旧サイトのリストアイコン（li_sub.png）を1行目の高さに合わせて表示 */
 .menu a {
   display: block;
-  padding: 15px 2px 15px 24px;
-  background: url("/images/theme/img_cmn/li_sub.png") no-repeat 2px 20px;
+  padding: 13px 14px 13px 38px;
+  background: #fff url("/images/theme/img_cmn/li_sub.png") no-repeat 16px 20px;
   font-size: 14.5px;
   font-weight: 500;
   line-height: 1.6;
-  transition: color 0.25s;
+  transition: color 0.25s, box-shadow 0.25s;
 }
 
 .menu a:hover {
-  color: var(--c-red);
+  color: var(--c-green);
+  box-shadow: inset 3px 0 0 var(--c-green);
 }
 
 .banner a {

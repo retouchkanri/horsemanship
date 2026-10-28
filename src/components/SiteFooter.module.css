@@ -1,22 +1,9 @@
+/* 旧サイトのフッターロゴは白抜きのため、濃いグレーの面に載せる */
 .footer {
-  position: relative;
   margin-top: clamp(72px, 10vw, 128px);
-  padding: clamp(56px, 8vw, 88px) 0 clamp(48px, 6vw, 72px);
-  background: var(--c-navy);
-  color: rgb(255 255 255 / 0.88);
-  overflow: hidden;
-}
-
-.footer::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: min(var(--container), 100% - var(--gutter) * 2);
-  height: 1px;
-  transform: translateX(-50%);
-  background: linear-gradient(90deg, transparent, var(--c-gold), transparent);
-  opacity: 0.6;
+  padding: clamp(56px, 8vw, 80px) 0 clamp(48px, 6vw, 64px);
+  background: var(--c-dark);
+  color: #fff;
 }
 
 .inner {
@@ -48,20 +35,24 @@
 }
 
 .address {
-  font-size: 13.5px;
-  line-height: 2.1;
-  letter-spacing: 0.06em;
+  font-size: 14px;
+  line-height: 2;
 }
 
 .address a {
   color: #fff;
   text-decoration: underline;
   text-underline-offset: 0.3em;
-  text-decoration-color: var(--c-gold);
+  text-decoration-color: var(--c-green-light);
+  transition: color 0.2s;
+}
+
+.address a:hover {
+  color: var(--c-green-light);
 }
 
 .address .tel {
-  font-size: 1.2em;
+  font-size: 1.3em;
   text-decoration: none;
 }
 
@@ -73,27 +64,30 @@
 }
 
 .menu li {
-  border-bottom: 1px solid rgb(255 255 255 / 0.12);
+  border-bottom: 1px solid rgb(255 255 255 / 0.15);
 }
 
-/* 旧サイトのフッターメニューの矢印（arrow.png） */
+/* 旧サイトのフッターメニューの矢印（arrow.png・黒）を白い四角の上に表示 */
 .menu a {
   display: block;
-  padding: 12px 0 12px 16px;
-  background: url("/images/theme/images/arrow.png") no-repeat 0 50%;
-  font-size: 13.5px;
+  padding: 12px 0 12px 26px;
+  background:
+    url("/images/theme/images/arrow.png") no-repeat 4px 50%,
+    linear-gradient(#fff, #fff) no-repeat 0 50% / 15px 15px;
+  font-size: 14px;
+  font-weight: 500;
   line-height: 1.6;
   transition: color 0.25s, background-position 0.3s var(--ease);
 }
 
 .menu a:hover {
-  color: var(--c-gold);
-  background-position: 3px 50%;
+  color: var(--c-green-light);
+  background-position: 6px 50%, 0 50%;
 }
 
 .area {
   padding: 32px 0;
-  background: var(--c-bg-deep);
+  background: var(--c-bg-gray);
   font-size: 12px;
   line-height: 2;
   color: var(--c-ink-soft);
@@ -118,20 +112,19 @@
 
 .areaLabel {
   justify-self: start;
-  padding: 2px 14px;
+  padding: 3px 14px;
   color: #fff;
   font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
+  font-weight: 500;
   white-space: nowrap;
 }
 
 .areaLabel[data-tone="green"] {
-  background: #3d6b4f;
+  background: var(--c-green);
 }
 
 .areaLabel[data-tone="blue"] {
-  background: #2f4f86;
+  background: var(--c-blue);
 }
 
 .areaLinks a {
@@ -139,7 +132,7 @@
 }
 
 .areaLinks a:hover {
-  color: var(--c-red);
+  color: var(--c-green);
   text-decoration: underline;
 }
 
@@ -149,11 +142,10 @@
 }
 
 .copyright {
-  padding: 18px 0;
-  background: #0f1830;
-  color: rgb(255 255 255 / 0.7);
-  font-family: var(--font-en);
-  font-size: 13px;
-  letter-spacing: 0.08em;
+  padding: 24px 0;
+  background: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
   text-align: center;
 }

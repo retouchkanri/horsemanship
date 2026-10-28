@@ -19,7 +19,7 @@
 .slide {
   position: absolute;
   inset: 0;
-  background: var(--c-bg-deep);
+  background: var(--c-bg-gray);
   transform: translateX(calc(var(--offset) * 100%));
   transition:
     transform 0.7s var(--ease),
@@ -64,27 +64,27 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 14px;
-  margin-top: 14px;
+  gap: 16px;
+  margin-top: 16px;
 }
 
+/* 矢印は緑のボタン、ページ送りは細いバー */
 .arrow {
   display: grid;
   place-items: center;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   padding: 0;
-  border: 1px solid var(--c-line-strong);
-  background: var(--c-surface);
-  color: var(--c-navy);
+  border: 0;
+  background: var(--c-green);
+  color: #fff;
   cursor: pointer;
-  transition: background 0.25s, color 0.25s, border-color 0.25s;
+  filter: var(--drop);
+  transition: background 0.25s;
 }
 
 .arrow:hover {
-  background: var(--c-navy);
-  border-color: var(--c-navy);
-  color: #fff;
+  background: var(--c-green-dark);
 }
 
 .arrow svg {
@@ -92,39 +92,52 @@
   height: 16px;
   fill: none;
   stroke: currentColor;
-  stroke-width: 1.6;
+  stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
 
 .dots {
   display: flex;
-  gap: 8px;
+  gap: 10px;
   list-style: none;
 }
 
 .dots button {
   position: relative;
   display: block;
-  width: 8px;
-  height: 8px;
+  width: 30px;
+  height: 5px;
   padding: 0;
   border: 0;
   background: var(--c-line-strong);
   overflow: hidden;
   cursor: pointer;
-  transition: width 0.5s var(--ease), background 0.3s;
+  transition: background 0.3s;
 }
 
-.dots button[aria-current="true"] {
-  width: 44px;
-  background: var(--c-line);
+.dots button:hover {
+  background: var(--c-muted);
+}
+
+@media (max-width: 639px) {
+  .controls {
+    gap: 10px;
+  }
+
+  .dots {
+    gap: 6px;
+  }
+
+  .dots button {
+    width: 18px;
+  }
 }
 
 .progress {
   position: absolute;
   inset: 0;
-  background: var(--c-red);
+  background: var(--c-ink);
   transform-origin: left center;
   animation: progress 5.5s linear forwards;
 }
@@ -152,13 +165,19 @@
 .counter {
   min-width: 64px;
   font-family: var(--font-en);
-  font-size: 15px;
-  letter-spacing: 0.12em;
+  font-size: 14px;
+  font-weight: 500;
   color: var(--c-muted);
   text-align: center;
 }
 
 .counter span {
   color: var(--c-ink);
-  font-weight: 600;
+  font-weight: 700;
+}
+
+@media (max-width: 639px) {
+  .counter {
+    min-width: 52px;
+  }
 }

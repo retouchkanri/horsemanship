@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
-import { Cormorant_Garamond, Shippori_Mincho, Zen_Kaku_Gothic_New } from "next/font/google";
+import { Noto_Sans_JP, Roboto } from "next/font/google";
 import { GlobalNav } from "@/components/GlobalNav";
 import { HeroCarousel } from "@/components/HeroCarousel";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -8,26 +8,17 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
 import "./globals.css";
 
-const zenKaku = Zen_Kaku_Gothic_New({
-  weight: ["400", "500", "700"],
+const notoSans = Noto_Sans_JP({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-zen-kaku",
+  variable: "--font-noto-sans",
 });
 
-const shippori = Shippori_Mincho({
+const roboto = Roboto({
   weight: ["500", "700"],
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-shippori",
-});
-
-const cormorant = Cormorant_Garamond({
-  weight: ["500", "600"],
-  style: ["normal", "italic"],
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-cormorant",
+  variable: "--font-roboto",
 });
 
 export const metadata: Metadata = {
@@ -46,12 +37,12 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#f6f3ee",
+  themeColor: "#ffffff",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="ja" className={`${zenKaku.variable} ${shippori.variable} ${cormorant.variable}`}>
+    <html lang="ja" className={`${notoSans.variable} ${roboto.variable}`}>
       <body>
         <SiteHeader />
         <HeroCarousel />

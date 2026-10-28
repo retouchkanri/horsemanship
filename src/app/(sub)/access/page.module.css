@@ -3,8 +3,8 @@
   margin: 2em 0 3em;
   aspect-ratio: 16 / 9;
   overflow: hidden;
-  background: var(--c-bg-deep);
-  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--c-line-strong);
+  background: var(--c-bg-gray);
 }
 
 .map iframe {

@@ -1,51 +1,32 @@
 .title {
-  position: relative;
   margin-bottom: clamp(28px, 4vw, 44px);
   padding-bottom: clamp(20px, 3vw, 28px);
-  font-family: var(--font-serif);
   font-weight: 700;
   border-bottom: 1px solid var(--c-line);
-}
-
-.title::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -1px;
-  width: 72px;
-  height: 2px;
-  background: var(--c-red);
 }
 
 .title br {
   display: none;
 }
 
+/* 上段：緑の小見出し */
 .sub {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 10px;
-  font-family: var(--font-sans);
-  font-size: clamp(12.5px, 1.4vw, 14px);
-  font-weight: 700;
+  display: block;
+  margin-bottom: 6px;
+  font-size: clamp(14px, 1.6vw, 18px);
+  font-weight: 500;
   line-height: 1.6;
-  letter-spacing: 0.1em;
-  color: var(--c-gold);
-}
-
-.sub::before {
-  content: "";
-  flex: none;
-  width: 24px;
-  height: 1px;
-  background: currentColor;
+  color: var(--c-green);
 }
 
 .main {
   display: block;
-  font-size: clamp(22px, 3.2vw, 32px);
-  line-height: 1.55;
-  letter-spacing: 0.06em;
-  color: var(--c-navy);
+  font-size: clamp(24px, 3.4vw, 36px);
+  line-height: 1.45;
+  color: var(--c-ink);
+}
+
+/* ページ見出しは緑＋濃いグレーに統一（本文中の強調色はそのまま） */
+.title [class^="t-"] {
+  color: inherit;
 }

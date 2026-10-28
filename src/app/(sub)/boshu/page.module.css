@@ -2,8 +2,8 @@
   display: inline-block;
   margin-bottom: 1.2em;
   padding: 4px 16px;
-  background: var(--c-gold-soft);
-  color: #7a5a26;
+  background: var(--c-green-pale);
+  color: var(--c-green-dark);
   font-size: 0.92em;
   font-weight: 700;
   line-height: 1.8;
@@ -11,8 +11,8 @@
 
 .requirements {
   margin: 2.4em 0;
-  border: 1px solid var(--c-line);
-  background: var(--c-surface-soft);
+  border: 1px solid var(--c-line-strong);
+  background: var(--c-surface);
   overflow: hidden;
 }
 
@@ -23,7 +23,7 @@
 }
 
 .requirements > div + div {
-  border-top: 1px solid var(--c-line);
+  border-top: 1px solid var(--c-line-strong);
 }
 
 @media (min-width: 900px) {
@@ -34,10 +34,10 @@
 }
 
 .requirements dt {
-  font-family: var(--font-serif);
   font-size: 1.02em;
+  font-weight: 700;
   line-height: 1.8;
-  color: var(--c-navy);
+  color: var(--c-green);
   white-space: nowrap;
 }
 
@@ -62,8 +62,8 @@
   display: inline-block;
   margin-top: 0.4em;
   padding: 0 10px;
-  background: #e3efe3;
-  color: #1e5a2e;
+  background: var(--c-green-soft);
+  color: var(--c-green-dark);
   font-weight: 700;
 }
 
@@ -80,7 +80,7 @@
   display: inline-block;
   margin-bottom: 0.6em;
   padding: 2px 14px;
-  background: var(--c-navy);
+  background: var(--c-green);
   color: #fff;
   font-size: 0.92em;
 }
@@ -128,8 +128,8 @@
 }
 
 .timeline li[data-main="true"]::before {
-  border-color: var(--c-red);
-  background: var(--c-red);
+  border-color: var(--c-green);
+  background: var(--c-green);
 }
 
 .time {
@@ -139,13 +139,13 @@
 }
 
 .timeline li[data-main="true"] .event {
-  color: var(--c-red);
+  color: var(--c-green-dark);
 }
 
 .scheduleNote {
   margin: 1.4em 0 0;
   padding-top: 1em;
-  border-top: 1px dashed var(--c-line-strong);
+  border-top: 1px solid var(--c-line);
   font-size: 0.92em;
   color: var(--c-ink-soft);
 }
